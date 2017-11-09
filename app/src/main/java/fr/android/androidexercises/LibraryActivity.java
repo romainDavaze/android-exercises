@@ -1,5 +1,6 @@
 package fr.android.androidexercises;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LibraryActivity extends AppCompatActivity {
@@ -25,7 +27,8 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Replace with startActivityForResult() to start BookActivity
-                Toast.makeText(LibraryActivity.this, R.string.toast_todo, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LibraryActivity.this, R.string.toast_todo, Toast.LENGTH_SHORT).show();
+                startActivityForResult(new Intent(LibraryActivity.this, BookActivity.class), 666);
             }
         });
     }
@@ -33,6 +36,12 @@ public class LibraryActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO get back book name
+        if (requestCode == 666) {
+            if(resultCode == Activity.RESULT_OK){
+                TextView textView = findViewById(R.id.textView);
+                textView.setText(data.getStringExtra("book"));
+            }
+        }
     }
 
     @Override
