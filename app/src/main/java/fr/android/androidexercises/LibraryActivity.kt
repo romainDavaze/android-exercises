@@ -41,14 +41,11 @@ class LibraryActivity : AppCompatActivity() {
     }
 
     private fun getBooks(): List<Book> {
-        val books = ArrayList<Book>()
         val random = Random()
-        for (i in 0..99) {
-            books.add(Book(
-                    String.format(Locale.FRANCE, "Garry Potier Tome %d", i),
+        return (0..99).map {
+            Book(
+                    String.format(Locale.FRANCE, "Garry Potier Tome %d", it),
                     random.nextInt(30).toFloat())
-            )
         }
-        return books
     }
 }
