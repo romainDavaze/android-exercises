@@ -12,6 +12,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.*;
+import static android.support.test.espresso.assertion.ViewAssertions.*;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
+
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class LoginActivityTest {
@@ -22,6 +27,13 @@ public class LoginActivityTest {
 
     @Test
     public void shouldTryLoginAndSuccess() throws Exception {
-        // TODO test login
+        onView(withId(R.id.usernameEdit)).perform(typeText("r@toto.fr"));
+
+        onView(withId(R.id.passwordEdit)).perform(typeText("password"),
+                closeSoftKeyboard());
+
+        onView(withId(R.id.loginButton)).perform(click());
+
+        onView(withId(R.id.loggedText)).check(matches(isDisplayed()));
     }
 }
