@@ -3,8 +3,6 @@ package fr.romaindavaze;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Arrays;
-
 class Book implements Parcelable{
 
     private String name;
