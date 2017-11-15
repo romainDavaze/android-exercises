@@ -1,4 +1,4 @@
-package fr.android.androidexercises;
+package fr.romaindavaze;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import fr.romaindavaze.androidexercises.R;
 
 public class LibraryActivity extends AppCompatActivity {
 
