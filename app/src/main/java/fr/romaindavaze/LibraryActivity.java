@@ -6,9 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import timber.log.Timber;
+
 public class LibraryActivity extends AppCompatActivity implements BookFragment.OnBookClickedListener {
 
-    private Book selected;
+    private Book selectedBook;
+    private boolean isLandscape;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +21,37 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        boolean isLandscape = getResources().getBoolean(R.bool.isLandscape);
+        Timber.plant(new Timber.DebugTree());
 
+        isLandscape = getResources().getBoolean(R.bool.isLandscape);
+
+        BookFragment bookFragment = null;
+
+        if(savedInstanceState != null){
+            selectedBook = savedInstanceState.getParcelable("book");
+            // TODO : DISPLAY DEPENDING ON ORIENTATION
+        } else {
+            bookFragment = new BookFragment();
+        }
+
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerFrameLayout, bookFragment, BookFragment.class.getSimpleName())
+                .commit();
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("book", selectedBook);
+    }
+
+
+    @Override
+    public void onBookClicked(Book book) {
+        selectedBook = book;
+        // TODO: DISPLAY DEPENDING ON ORIENTATION
     }
 
     @Override
@@ -44,8 +76,4 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBookClicked(Book book) {
-
-    }
 }
