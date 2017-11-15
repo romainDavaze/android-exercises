@@ -5,23 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import fr.romaindavaze.androidexercises.R;
+public class LibraryActivity extends AppCompatActivity implements BookFragment.OnBookClickedListener {
 
-public class LibraryActivity extends AppCompatActivity {
+    private Book selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        TextView messageTextView = (TextView) findViewById(R.id.messageTextView);
-        // TODO call setText() on messageTextView
-        messageTextView.setText(R.string.Hello);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        boolean isLandscape = getResources().getBoolean(R.bool.isLandscape);
 
     }
 
@@ -45,5 +42,10 @@ public class LibraryActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBookClicked(Book book) {
+
     }
 }
