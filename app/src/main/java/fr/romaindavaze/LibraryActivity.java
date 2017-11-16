@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import timber.log.Timber;
 
 
-public class LibraryActivity extends AppCompatActivity implements BookFragment.OnBookClickedListener {
+public class LibraryActivity extends AppCompatActivity implements BookListFragment.OnBookClickedListener {
 
     private Book selectedBook;
 
@@ -19,22 +19,22 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
 
         Timber.plant(new Timber.DebugTree());
 
-        BookFragment bookFragment;
+        BookListFragment bookListFragment;
 
         if(savedInstanceState != null){
             // We are in book detail page
-            bookFragment = (BookFragment) getSupportFragmentManager().findFragmentByTag(BookFragment.class.getSimpleName());
+            bookListFragment = (BookListFragment) getSupportFragmentManager().findFragmentByTag(BookListFragment.class.getSimpleName());
 
             selectedBook = savedInstanceState.getParcelable(Utils.BOOK_KEY);
 
             displayBookDetail();
         } else {
             // We are in book list page
-            bookFragment = new BookFragment();
+            bookListFragment = new BookListFragment();
         }
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerFrameLayout, bookFragment, BookFragment.class.getSimpleName())
+                .replace(R.id.containerFrameLayout, bookListFragment, BookListFragment.class.getSimpleName())
                 .commit();
     }
 

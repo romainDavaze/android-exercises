@@ -23,7 +23,7 @@ import timber.log.Timber;
  * @author romain
  */
 
-public class BookFragment extends Fragment {
+public class BookListFragment extends Fragment {
 
     private ArrayList<Book> books = new ArrayList<>();
     private BookAdapter bookAdapter;
@@ -38,7 +38,7 @@ public class BookFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.book_list_view, container, false);
+        return inflater.inflate(R.layout.book_list_fragment, container, false);
     }
 
     @Override

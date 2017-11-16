@@ -16,10 +16,10 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
 
     private final LayoutInflater inflater;
     private List<Book> books;
-    private BookFragment.OnBookClickedListener listener;
+    private BookListFragment.OnBookClickedListener listener;
 
 
-    BookAdapter(LayoutInflater inflater, List<Book> books, BookFragment.OnBookClickedListener listener) {
+    BookAdapter(LayoutInflater inflater, List<Book> books, BookListFragment.OnBookClickedListener listener) {
         this.inflater = inflater;
         this.books = books;
         this.listener = listener;
@@ -27,7 +27,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.book_fragment, parent, false);
+        View view = inflater.inflate(R.layout.book_item_view, parent, false);
         return new CustomViewHolder(view);
     }
 
