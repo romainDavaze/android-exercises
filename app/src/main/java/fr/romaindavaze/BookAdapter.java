@@ -19,7 +19,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
     private BookFragment.OnBookClickedListener listener;
 
 
-    public BookAdapter(LayoutInflater inflater, List<Book> books, BookFragment.OnBookClickedListener listener) {
+    BookAdapter(LayoutInflater inflater, List<Book> books, BookFragment.OnBookClickedListener listener) {
         this.inflater = inflater;
         this.books = books;
         this.listener = listener;
@@ -53,7 +53,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
 
 
     static class CustomViewHolder extends RecyclerView.ViewHolder {
-
         CustomViewHolder(View itemView) {
             super(itemView);
         }
