@@ -53,7 +53,7 @@ public class BookFragment extends Fragment {
 
         if (savedInstanceState != null){
             books.clear();
-            ArrayList<Book> booksToAdd = savedInstanceState.getParcelableArrayList("books");
+            ArrayList<Book> booksToAdd = savedInstanceState.getParcelableArrayList(Utils.BOOKS_KEY);
             books.addAll(booksToAdd);
 
             // Notify that the books' data has changed
@@ -92,7 +92,7 @@ public class BookFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList("books", books);
+        outState.putParcelableArrayList(Utils.BOOKS_KEY, books);
     }
 
 

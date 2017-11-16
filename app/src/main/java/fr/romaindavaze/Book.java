@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 class Book implements Parcelable{
 
-    private String name;
+    private String title;
     private String price;
     private String cover;
     private String isbn;
@@ -13,7 +13,7 @@ class Book implements Parcelable{
 
 
     private Book(Parcel in) {
-        name = in.readString();
+        title = in.readString();
         price = in.readString();
         cover = in.readString();
         isbn = in.readString();
@@ -39,22 +39,22 @@ class Book implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
+        dest.writeString(title);
         dest.writeString(price);
         dest.writeString(cover);
         dest.writeString(isbn);
         dest.writeStringArray(synopsis);
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getPrice() {
+    String getPrice() {
         return price;
     }
 
@@ -62,7 +62,7 @@ class Book implements Parcelable{
         this.price = price;
     }
 
-    public String getCover() {
+    String getCover() {
         return cover;
     }
 
@@ -70,7 +70,7 @@ class Book implements Parcelable{
         this.cover = cover;
     }
 
-    public String getIsbn() {
+    String getIsbn() {
         return isbn;
     }
 
@@ -78,7 +78,7 @@ class Book implements Parcelable{
         this.isbn = isbn;
     }
 
-    public String[] getSynopsis() {
+    String[] getSynopsis() {
         return synopsis;
     }
 

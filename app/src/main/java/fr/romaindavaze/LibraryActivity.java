@@ -2,38 +2,36 @@ package fr.romaindavaze;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import timber.log.Timber;
 
+
 public class LibraryActivity extends AppCompatActivity implements BookFragment.OnBookClickedListener {
 
     private Book selectedBook;
-    private boolean isLandscape;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         Timber.plant(new Timber.DebugTree());
-
-        isLandscape = getResources().getBoolean(R.bool.isLandscape);
 
         BookFragment bookFragment = null;
 
         if(savedInstanceState != null){
-            selectedBook = savedInstanceState.getParcelable("book");
-            // TODO : DISPLAY DEPENDING ON ORIENTATION
+            // We are in book detail page
+            bookFragment = (BookFragment) getSupportFragmentManager().findFragmentByTag(BookFragment.class.getSimpleName());
+
+            selectedBook = savedInstanceState.getParcelable(Utils.BOOK_KEY);
+
+            displayBookDetail();
         } else {
+            // We are in book list page
             bookFragment = new BookFragment();
         }
-
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerFrameLayout, bookFragment, BookFragment.class.getSimpleName())
@@ -44,14 +42,14 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("book", selectedBook);
+        outState.putParcelable(Utils.BOOK_KEY, selectedBook);
     }
 
 
     @Override
     public void onBookClicked(Book book) {
         selectedBook = book;
-        // TODO: DISPLAY DEPENDING ON ORIENTATION
+        displayBookDetail();
     }
 
     @Override
@@ -76,4 +74,27 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
         return super.onOptionsItemSelected(item);
     }
 
+
+    private void displayBookDetail(){
+        boolean isLandscape = getResources().getBoolean(R.bool.isLandscape);
+
+        BookDetailFragment detailFragment = new BookDetailFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Utils.BOOK_KEY, selectedBook);
+
+        detailFragment.setArguments(bundle);
+
+        if(isLandscape){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.bookDetail, detailFragment, BookDetailFragment.class.getSimpleName())
+                    .commit();
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.containerFrameLayout, detailFragment, BookDetailFragment.class.getSimpleName())
+                    .addToBackStack("ComingFromList")
+                    .commit();
+        }
+
+    }
 }

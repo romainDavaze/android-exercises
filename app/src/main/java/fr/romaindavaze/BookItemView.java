@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 
 public class BookItemView extends LinearLayout {
 
-    private TextView nameTextView;
+    private TextView titleTextView;
     private TextView priceTextView;
     private ImageView coverImageView;
 
@@ -35,14 +35,14 @@ public class BookItemView extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        nameTextView = findViewById(R.id.nameTextView);
+        titleTextView = findViewById(R.id.titleTextView);
         priceTextView = findViewById(R.id.priceTextView);
         coverImageView = findViewById(R.id.coverImageView);
     }
 
 
     public void bindView(Book book){
-        nameTextView.setText(book.getName());
+        titleTextView.setText(book.getTitle());
         priceTextView.setText(String.format("%s €", book.getPrice()));
 
         Glide.with(this)
