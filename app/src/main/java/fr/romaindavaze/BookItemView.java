@@ -40,7 +40,6 @@ public class BookItemView extends LinearLayout {
         coverImageView = findViewById(R.id.coverImageView);
     }
 
-
     public void bindView(Book book){
         titleTextView.setText(book.getTitle());
         priceTextView.setText(String.format("%s €", book.getPrice()));
@@ -48,6 +47,5 @@ public class BookItemView extends LinearLayout {
         Glide.with(this)
                 .load(book.getCover())
                 .into(coverImageView);
-
     }
 }

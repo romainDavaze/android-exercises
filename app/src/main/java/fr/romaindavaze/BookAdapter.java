@@ -27,7 +27,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.book_list_view, parent, false);
+        View view = inflater.inflate(R.layout.book_fragment, parent, false);
         return new CustomViewHolder(view);
     }
 

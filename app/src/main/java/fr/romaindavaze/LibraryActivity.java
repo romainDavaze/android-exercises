@@ -19,7 +19,7 @@ public class LibraryActivity extends AppCompatActivity implements BookFragment.O
 
         Timber.plant(new Timber.DebugTree());
 
-        BookFragment bookFragment = null;
+        BookFragment bookFragment;
 
         if(savedInstanceState != null){
             // We are in book detail page

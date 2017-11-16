@@ -101,7 +101,7 @@ class Book implements Parcelable{
         return isbn.hashCode();
     }
 
-    public String getSynopsisToDisplay(){
+    String getSynopsisToDisplay(){
         StringBuilder sb = new StringBuilder();
 
         for (String s : synopsis) {
