@@ -14,9 +14,9 @@
         tools:context=".LibraryActivity"/>
 
     <View
-        android:layout_height="250dp"
-        android:layout_width="1dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="@dimen/split_line_height"
+        android:layout_width="@dimen/split_line_width"
+        android:layout_marginTop="@dimen/split_line_margin_top"
         android:background="@android:color/black"/>
 
 

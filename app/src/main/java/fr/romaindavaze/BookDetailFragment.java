@@ -53,8 +53,8 @@ public class BookDetailFragment extends Fragment {
         if(selectedBook != null){
             titleTextView.setText(selectedBook.getTitle());
             priceTextView.setText(String.format("%s €", selectedBook.getPrice()));
-            isbnTextView.setText(selectedBook.getIsbn());
-            synopsisTextView.setText(Arrays.toString(selectedBook.getSynopsis()));
+            isbnTextView.setText(String.format("Isbn : %s", selectedBook.getIsbn()));
+            synopsisTextView.setText(selectedBook.getSynopsisToDisplay());
 
             Glide.with(view.getContext())
                     .load(selectedBook.getCover())
