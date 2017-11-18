@@ -1,4 +1,4 @@
-package fr.romaindavaze;
+package fr.romaindavaze.view.custom;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import fr.romaindavaze.R;
+import fr.romaindavaze.model.Book;
 
 /**
  * @author romain

@@ -1,7 +1,8 @@
-package fr.romaindavaze;
+package fr.romaindavaze.service;
 
 import java.util.List;
 
+import fr.romaindavaze.model.Book;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

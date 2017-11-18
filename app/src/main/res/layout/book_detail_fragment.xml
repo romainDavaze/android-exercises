@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:scrollbars="vertical"
         android:padding="@dimen/default_padding"
-        tools:context=".LibraryActivity">
+        tools:context=".view.activity.LibraryActivity">
 
         <TextView
             android:id="@+id/titleTextView"

@@ -1,4 +1,4 @@
-package fr.romaindavaze;
+package fr.romaindavaze.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import fr.romaindavaze.R;
+import fr.romaindavaze.util.Util;
+import fr.romaindavaze.model.Book;
 
 /**
  * @author romain
@@ -32,7 +36,7 @@ public class BookDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.book_detail_fragment, container, false);
 
-        selectedBook = getArguments().getParcelable(Utils.BOOK_KEY);
+        selectedBook = getArguments().getParcelable(Util.BOOK_KEY);
 
         titleTextView = view.findViewById(R.id.titleTextView);
         priceTextView = view.findViewById(R.id.priceTextView);

@@ -1,9 +1,9 @@
-package fr.romaindavaze;
+package fr.romaindavaze.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-class Book implements Parcelable{
+public class Book implements Parcelable{
 
     private String title;
     private String price;
@@ -54,7 +54,7 @@ class Book implements Parcelable{
         this.title = title;
     }
 
-    String getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -62,7 +62,7 @@ class Book implements Parcelable{
         this.price = price;
     }
 
-    String getCover() {
+    public String getCover() {
         return cover;
     }
 
@@ -70,7 +70,7 @@ class Book implements Parcelable{
         this.cover = cover;
     }
 
-    String getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
@@ -78,7 +78,7 @@ class Book implements Parcelable{
         this.isbn = isbn;
     }
 
-    String[] getSynopsis() {
+    public String[] getSynopsis() {
         return synopsis;
     }
 
@@ -101,7 +101,7 @@ class Book implements Parcelable{
         return isbn.hashCode();
     }
 
-    String getSynopsisToDisplay(){
+    public String getSynopsisToDisplay(){
         StringBuilder sb = new StringBuilder();
 
         for (String s : synopsis) {

@@ -1,4 +1,4 @@
-package fr.romaindavaze;
+package fr.romaindavaze.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,11 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.romaindavaze.R;
+import fr.romaindavaze.util.Util;
+import fr.romaindavaze.adapter.BookAdapter;
+import fr.romaindavaze.model.Book;
+import fr.romaindavaze.service.BookService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,7 +58,7 @@ public class BookListFragment extends Fragment {
 
         if (savedInstanceState != null){
             books.clear();
-            ArrayList<Book> booksToAdd = savedInstanceState.getParcelableArrayList(Utils.BOOKS_KEY);
+            ArrayList<Book> booksToAdd = savedInstanceState.getParcelableArrayList(Util.BOOKS_KEY);
             books.addAll(booksToAdd);
 
             // Notify that the books' data has changed
@@ -61,7 +66,7 @@ public class BookListFragment extends Fragment {
 
         } else if (books.isEmpty()){
 
-            Retrofit retrofit = Utils.buildRetrofit();
+            Retrofit retrofit = Util.buildRetrofit();
 
             final BookService bookService = retrofit.create(BookService.class);
 
@@ -92,7 +97,7 @@ public class BookListFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList(Utils.BOOKS_KEY, books);
+        outState.putParcelableArrayList(Util.BOOKS_KEY, books);
     }
 
 

@@ -1,4 +1,4 @@
-package fr.romaindavaze;
+package fr.romaindavaze.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+
+import fr.romaindavaze.R;
+import fr.romaindavaze.model.Book;
+import fr.romaindavaze.view.custom.BookItemView;
+import fr.romaindavaze.view.fragment.BookListFragment;
 
 
 /**
@@ -19,7 +24,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.CustomViewHold
     private BookListFragment.OnBookClickedListener listener;
 
 
-    BookAdapter(LayoutInflater inflater, List<Book> books, BookListFragment.OnBookClickedListener listener) {
+    public BookAdapter(LayoutInflater inflater, List<Book> books, BookListFragment.OnBookClickedListener listener) {
         this.inflater = inflater;
         this.books = books;
         this.listener = listener;

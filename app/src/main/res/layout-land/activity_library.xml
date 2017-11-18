@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        tools:context=".LibraryActivity"/>
+        tools:context=".view.activity.LibraryActivity"/>
 
     <View
         android:layout_height="@dimen/split_line_height"

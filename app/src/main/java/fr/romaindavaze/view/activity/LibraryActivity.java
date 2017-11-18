@@ -1,10 +1,15 @@
-package fr.romaindavaze;
+package fr.romaindavaze.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import fr.romaindavaze.R;
+import fr.romaindavaze.model.Book;
+import fr.romaindavaze.util.Util;
+import fr.romaindavaze.view.fragment.BookDetailFragment;
+import fr.romaindavaze.view.fragment.BookListFragment;
 import timber.log.Timber;
 
 
@@ -25,7 +30,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
             // We are in book detail page
             bookListFragment = (BookListFragment) getSupportFragmentManager().findFragmentByTag(BookListFragment.class.getSimpleName());
 
-            selectedBook = savedInstanceState.getParcelable(Utils.BOOK_KEY);
+            selectedBook = savedInstanceState.getParcelable(Util.BOOK_KEY);
 
             displayBookDetail();
         } else {
@@ -42,7 +47,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(Utils.BOOK_KEY, selectedBook);
+        outState.putParcelable(Util.BOOK_KEY, selectedBook);
     }
 
 
@@ -81,7 +86,7 @@ public class LibraryActivity extends AppCompatActivity implements BookListFragme
         BookDetailFragment detailFragment = new BookDetailFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Utils.BOOK_KEY, selectedBook);
+        bundle.putParcelable(Util.BOOK_KEY, selectedBook);
 
         detailFragment.setArguments(bundle);
 
